@@ -1,0 +1,57 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Public read-only catalog collections
+    match /brand_settings/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    // Sensitive reseller profile & wallet records:
+    // Direct client writes are blocked to protect balance & withdrawal integrity.
+    // Read is permitted only to the authenticated owner.
+    match /employees/{employeeId} {
+      allow read: if request.auth != null && request.auth.uid == employeeId;
+      allow write: if false;
+    }
+    
+    // Sales / orders: direct client writes blocked
+    match /sales/{saleId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    
+    // Withdrawals: direct client writes blocked
+    match /withdrawals/{withdrawalId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    
+    // Financial transaction ledger: direct client writes blocked
+    match /transactions/{transactionId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    
+    // Internal app state backup document: client access denied
+    match /app_state/{docId} {
+      allow read, write: if false;
+    }
+    
+    // Catch-all: deny all unhandled collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

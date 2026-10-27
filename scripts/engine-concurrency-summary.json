@@ -1,0 +1,57 @@
+[
+  {
+    "concurrency": 100,
+    "authOpsPerSec": 92520,
+    "catalogOpsPerSec": 150181,
+    "indexOpsPerSec": 560507,
+    "walletOpsPerSec": 31406,
+    "totalTimeMs": 5.1,
+    "walletAnomalies": 0,
+    "walletIntegrityPassed": true,
+    "heapUsedMB": 58.5
+  },
+  {
+    "concurrency": 500,
+    "authOpsPerSec": 170991,
+    "catalogOpsPerSec": 302918,
+    "indexOpsPerSec": 728212,
+    "walletOpsPerSec": 49616,
+    "totalTimeMs": 15.4,
+    "walletAnomalies": 0,
+    "walletIntegrityPassed": true,
+    "heapUsedMB": 61.3
+  },
+  {
+    "concurrency": 1000,
+    "authOpsPerSec": 141056,
+    "catalogOpsPerSec": 358114,
+    "indexOpsPerSec": 3055478,
+    "walletOpsPerSec": 46107,
+    "totalTimeMs": 31.9,
+    "walletAnomalies": 0,
+    "walletIntegrityPassed": true,
+    "heapUsedMB": 55.7
+  },
+  {
+    "concurrency": 2500,
+    "authOpsPerSec": 197622,
+    "catalogOpsPerSec": 393165,
+    "indexOpsPerSec": 824955,
+    "walletOpsPerSec": 59721,
+    "totalTimeMs": 63.9,
+    "walletAnomalies": 0,
+    "walletIntegrityPassed": true,
+    "heapUsedMB": 60.6
+  },
+  {
+    "concurrency": 5000,
+    "authOpsPerSec": 391998,
+    "catalogOpsPerSec": 1611015,
+    "indexOpsPerSec": 3837634,
+    "walletOpsPerSec": 180346,
+    "totalTimeMs": 44.9,
+    "walletAnomalies": 0,
+    "walletIntegrityPassed": true,
+    "heapUsedMB": 69.9
+  }
+]
